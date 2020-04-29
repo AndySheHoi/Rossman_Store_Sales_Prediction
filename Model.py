@@ -116,7 +116,10 @@ grid = GridSearchCV(estimator=xgboost_tree,param_grid=param,cv=5,  verbose=1, n_
 grid_result = grid.fit(X_train, y_train)
 best_params = grid_result.best_params_
 
+# Best Params : {'max_depth': 8, 'n_estimators': 1500}
 print('Best Params :',best_params)
 
 pred = grid_result.predict(X_test)
+
+# Root Mean squared error 350.0198044301917
 print('Root Mean squared error {}'.format(sqrt(mean_squared_error(np.exp(y_test), np.exp(pred)))))
